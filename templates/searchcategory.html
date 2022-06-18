@@ -1,0 +1,38 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Airport | View Schedule</title>
+    <h2>Enter Flight details to View Schedule.</h2>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <!--<form>
+            Flight ID:<input type="text" name="flightid"><br><br>
+            
+            Date: <input type="Date" name="departuredate"><br><br>
+
+            Source City:<input type="text" name="sourcecity"><br>
+            Destination City:<input type="text" name="destinationcity"><br><br>
+            
+            <input type="submit" value="Create Schedule">
+        </form>-->
+        <form>{% csrf_token %}
+
+          <a href="/live/"><input type="button" name="live" value="Live"></a>
+          <a href="/schedule/"><input type="button" name="schedule" value="Schedule"></a>
+          <a href="/airport/"><input type="button" name="airport" value="Airport"></a>
+          <a href="/login/logout/"><input type="button" name="logout" value="Logout"></a>
+    </form>
+        <form action="searchid" method="Post">{% csrf_token %}
+            <input type="submit" value="Search by ID" name="id"><br><br>
+            <!--<input type="submit" value="Search by City" name="id"><br><br>-->
+        </form>
+        <form action="searchcity" method="Post">{% csrf_token %}
+            <input type="submit" value="Search by City"/>
+        </form>
+    </body>
+</html>

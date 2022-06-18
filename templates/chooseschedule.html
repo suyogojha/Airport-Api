@@ -1,0 +1,32 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>The Airport | Live Status</title>
+    </head>
+    <body>
+        <form>{% csrf_token %}
+
+          <a href="/live/"><input type="button" name="live" value="Live"></a>
+          <a href="/schedule/"><input type="button" name="schedule" value="Schedule"></a>
+          <a href="/airport/"><input type="button" name="airport" value="Airport"></a>
+          <a href="/login/logout/"><input type="button" name="logout" value="Logout"></a>
+    </form>
+        <h1>Welcome to The Airport Live</h1>
+        <form action="new.html">{% csrf_token %}
+            <input type="submit" value="Create Schedule">
+        </form>
+        <br><br><br><br>
+        <form action="update.html">{% csrf_token %}
+            <input type="submit" value="Update Schedule">
+        </form>
+        <br><br><br><br>
+        <form  action="choosecategory.html">{% csrf_token %}
+            <input type="submit" value="View Schedule">
+        </form>
+        
+        
+    </body>
+</html>

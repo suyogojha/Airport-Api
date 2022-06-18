@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Airport | Create Schedule</title>
+    <h2>Enter Flight details to create Schedule.</h2>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<SCRIPT language="javascript">
+	var x=0;
+	var y=1;
+	var p="s";
+	function add() {
+
+		x=x+y;
+	    var element = document.createElement("input");
+		element.setAttribute("type", "text");
+		element.setAttribute("placeholder","NEW");
+		element.setAttribute("name", "s"+x);
+        var para= document.createElement("P");
+        var t = document.createTextNode("Stop "+x+"");
+		para.appendChild(t);
+        var foo = document.getElementById("fooBar");
+		foo.appendChild(para);
+        foo.appendChild(element);
+
+		var element1 = document.createElement("input");
+		element1.setAttribute("type", "Time");
+		element1.setAttribute("name", "a"+x);
+        var para1= document.createElement("P");
+        var t1 = document.createTextNode("Arrival "+x+"");
+		para1.appendChild(t1);
+        var foo = document.getElementById("fooBar");
+		foo.appendChild(para1);
+        foo.appendChild(element1);
+
+        var element2 = document.createElement("input");
+		element2.setAttribute("type", "Time");
+		element2.setAttribute("name", "d"+x);
+        var para2= document.createElement("P");
+        var t2 = document.createTextNode("Departure "+x+"");
+		para2.appendChild(t2);
+        var foo = document.getElementById("fooBar");
+		foo.appendChild(para2);
+        foo.appendChild(element2);
+        var c=document.getElementById("count");
+        c.setAttribute("value",x);
+		}
+	</SCRIPT>
+    </head>
+    <body>
+        <form>{% csrf_token %}
+
+          <a href="/live/"><input type="button" name="live" value="Live"></a>
+          <a href="/schedule/"><input type="button" name="schedule" value="Schedule"></a>
+          <a href="/airport/"><input type="button" name="airport" value="Airport"></a>
+          <a href="/login/logout/"><input type="button" name="logout" value="Logout"></a>
+    </form>
+        <form action="reschedule" method="Post">{% csrf_token %}
+            *Flight ID:<input type="text" name="flightid" required><br><br>
+
+            <!--Date: <input type="Date" name="departuredate"><br><br>-->
+
+            <input type="checkbox" name="sunday" value="sunday" >Sunday<br>
+			<input type="checkbox" name="monday" value="monday">Monday<br>
+			<input type="checkbox" name="tuesday" value="tuesday">Tuesday<br>
+			<input type="checkbox" name="wednesday" value="wednesday">Wednesday<br>
+			<input type="checkbox" name="thursday" value="thursday">Thursday<br>
+			<input type="checkbox" name="friday" value="friday">Friday<br><br>
+            <input type="checkbox" name="saturday" value="satuarday">Satuarday<br><br>
+            *Source City:<input type="text" name="source" required><br>
+            *Destination City:<input type="text" name="destination" required><br><br>
+
+            *Departure Time: <input type="Time" name="departures" required>
+            *Arrival Time: <input type="Time" name="arrivald" required><br><br>
+
+            <span id="fooBar"></span>
+            <input type="button" value="Add Intermediate" onclick="add()"><br><br>
+			<input type="hidden" name="count" value="0" id="count"/>
+			<br><input type="submit" value="Create Schedule">
+            {% if messages %}
+			{{messages}}
+		{% endif %}
+        </form>
+    </body>
+</html>

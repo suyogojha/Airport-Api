@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Airport</title>
+	<h2></h2>
+</head>
+<body>
+    <form>{% csrf_token %}
+
+          <a href="/live/"><input type="button" name="live" value="Live"></a>
+          <a href="/schedule/"><input type="button" name="schedule" value="Schedule"></a>
+          <a href="/airport/"><input type="button" name="airport" value="Airport"></a>
+          <a href="/login/logout/"><input type="button" name="logout" value="Logout"></a>
+    </form>
+	<form action="flboarding" method="post">{% csrf_token %}
+		<input type="submit" value="Boarding" ><br><br>
+	</form>
+	<form action="flupdate" method="post">{% csrf_token %}
+		<input type="submit" value="Flight Update"/>
+	</form>
+    <form action="reset" method="post">{% csrf_token %}
+		<input type="submit" value="Reset"/>
+	</form>
+</body>
+</html>

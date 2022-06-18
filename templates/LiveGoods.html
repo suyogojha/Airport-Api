@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>The Airport | Live Goods Status</title>
+        <h1>Welcome to the Goods/Passenger Live Status</h1>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <form>{% csrf_token %}
+
+          <a href="/live/"><input type="button" name="live" value="Live"></a>
+          <a href="/schedule/"><input type="button" name="schedule" value="Schedule"></a>
+          <a href="/airport/"><input type="button" name="airport" value="Airport"></a>
+          <a href="/login/logout/"><input type="button" name="logout" value="Logout"></a>
+    </form>
+         <form action="lpassogoods" method="post">{% csrf_token %}
+         *Enter the PNR of Goods or Passenger:  <input type="text" name="pnr" required/>
+         <br><br><br>
+         <input type="submit" value="Submit">
+           </form>
+            {{ m }} {{ q.pnr }} {{ q.boardstatus }} {{ q.description }}
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Airport | Search by ID</title>
+    <h2>Enter Flight details to View Schedule.</h2>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <form>{% csrf_token %}
+
+          <a href="/live/"><input type="button" name="live" value="Live"></a>
+          <a href="/schedule/"><input type="button" name="schedule" value="Schedule"></a>
+          <a href="/airport/"><input type="button" name="airport" value="Airport"></a>
+          <a href="/login/logout/"><input type="button" name="logout" value="Logout"></a>
+    </form>
+        <form action="remove.html" method="Post">{% csrf_token %}
+       *Flight ID: <input type="text" name="flightid" required><br><br>
+       <input type="submit" value="Submit">
+            {% if messages %}
+			{{messages}}
+		{% endif %}
+   </form>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Airport | Login</title>
+    <center><h2>Enter your Login Credentials.</h2></center>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+
+        <center><form action="/login/doauth" method="post">{% csrf_token %}
+			{% if message %}
+            {{ message }}
+			{% endif %}
+            *Username:<input type="text" name="username" required="username required"><br><br>
+            *Password:<input type="password" name="password" required="password required"><br><br>
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
+        </center>
+    </body>
+</html>

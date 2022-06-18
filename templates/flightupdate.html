@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Airport | Update Status</title>
+    <h2> Enter the details for Updating Status</h2>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form>{% csrf_token %}
+
+          <a href="/live/"><input type="button" name="live" value="Live"></a>
+          <a href="/schedule/"><input type="button" name="schedule" value="Schedule"></a>
+          <a href="/airport/"><input type="button" name="airport" value="Airport"></a>
+          <a href="/login/logout/"><input type="button" name="logout" value="Logout"></a>
+    </form>
+        <form action="flightupdate" method="post">{% csrf_token %}
+            *Flight ID: <input type="text" name="flightid" required><br><br>
+        
+            *Current City: <input type="text" name="station" required><br><br>
+
+            <input type="radio" name="ardep" value="arrived">Arrival<br>
+            <input type="radio" name="ardep" value="departed">Departure<br>
+        
+            <input type="submit" value="Update Status">
+        </form>
+    </body>
+</html>

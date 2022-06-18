@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Airport | Boarding</title>
+	<h2>Enter the Boarding Station</h2>
+</head>
+<body>
+    <form>{% csrf_token %}
+
+          <a href="/live/"><input type="button" name="live" value="Live"></a>
+          <a href="/schedule/"><input type="button" name="schedule" value="Schedule"></a>
+          <a href="/airport/"><input type="button" name="airport" value="Airport"></a>
+          <a href="/login/logout/"><input type="button" name="logout" value="Logout"></a>
+    </form>
+	<form action="boarding" method="post">{% csrf_token %}
+		
+		{% if messages %}
+			{{messages}}
+		{% endif %}
+		*Flight Id:<input type="text" name="flightid" required><br><br>
+		*PNR no:<input type="text" name="pnr"required><br><br>
+        *Station:<input type="text" name="station" required/><br><br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
